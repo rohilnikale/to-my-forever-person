@@ -1,0 +1,890 @@
+/* ==========================================
+        PART 1 - PREMIUM ANNIVERSARY CSS
+        Replace the TOP of your style.css
+========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+:root{
+
+    --pink:#ff7aa2;
+    --lightPink:#ffd8e6;
+    --bg:#fff7fb;
+    --white:#ffffff;
+    --text:#4a3b45;
+    --shadow:0 20px 50px rgba(255,105,150,.18);
+
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+    color:var(--text);
+    overflow-x:hidden;
+    background:linear-gradient(-45deg,#fff7fb,#ffe4ef,#fff5fa,#ffd7ea);
+    background-size:400% 400%;
+    animation:bgMove 18s ease infinite;
+
+}
+
+/* Animated Background */
+
+body::before{
+
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+    radial-gradient(circle at 20% 20%,rgba(255,255,255,.45),transparent 30%),
+    radial-gradient(circle at 80% 10%,rgba(255,192,203,.35),transparent 30%),
+    radial-gradient(circle at 60% 90%,rgba(255,255,255,.35),transparent 35%);
+    z-index:-2;
+
+}
+
+body::after{
+
+    content:"";
+    position:fixed;
+    inset:0;
+    background:url("https://www.transparenttextures.com/patterns/stardust.png");
+    opacity:.18;
+    z-index:-1;
+
+}
+
+@keyframes bgMove{
+
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+
+}
+
+/* Floating Hearts */
+
+.hearts{
+
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:0;
+
+}
+
+.heart{
+
+    position:absolute;
+    bottom:-60px;
+    color:#ff7aa2;
+    animation:floatHeart linear infinite;
+    opacity:.45;
+
+}
+
+@keyframes floatHeart{
+
+    from{
+
+        transform:translateY(0) rotate(0deg);
+        opacity:0;
+
+    }
+
+    20%{
+
+        opacity:.6;
+
+    }
+
+    to{
+
+        transform:translateY(-120vh) rotate(360deg);
+        opacity:0;
+
+    }
+
+}
+
+/* ================= Loader ================= */
+
+#loader{
+
+    position:fixed;
+    inset:0;
+    background:linear-gradient(135deg,#ffd5e5,#fff6fb);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    z-index:99999;
+    transition:.8s;
+
+}
+
+.loader-heart{
+
+    font-size:90px;
+    animation:heartbeat 1s infinite;
+
+}
+
+#loader h2{
+
+    margin-top:25px;
+    font-size:26px;
+    color:#d84d80;
+    font-family:'Great Vibes',cursive;
+    letter-spacing:2px;
+
+}
+
+@keyframes heartbeat{
+
+    0%{transform:scale(1);}
+    25%{transform:scale(1.15);}
+    50%{transform:scale(.95);}
+    75%{transform:scale(1.15);}
+    100%{transform:scale(1);}
+
+}
+
+/* ================= Password Page ================= */
+
+#lock-screen{
+
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
+
+}
+
+.lock-card{
+
+    width:430px;
+    max-width:90%;
+    padding:50px;
+    border-radius:30px;
+    text-align:center;
+
+    backdrop-filter:blur(18px);
+
+    background:rgba(255,255,255,.35);
+
+    border:1px solid rgba(255,255,255,.45);
+
+    box-shadow:
+    0 20px 60px rgba(255,105,150,.25);
+
+    animation:cardPop 1s;
+
+}
+
+@keyframes cardPop{
+
+    from{
+
+        opacity:0;
+        transform:translateY(70px) scale(.9);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:none;
+
+    }
+
+}
+
+.heart-lock{
+
+    font-size:90px;
+    margin-bottom:15px;
+    animation:heartbeat 1.4s infinite;
+
+}
+
+.lock-card h1{
+
+    font-family:'Great Vibes',cursive;
+    font-size:56px;
+    color:#d84d80;
+    margin-bottom:15px;
+
+}
+
+.lock-card p{
+
+    color:#666;
+    margin-bottom:20px;
+
+}
+
+#password{
+
+    width:100%;
+    padding:18px;
+    border-radius:50px;
+    border:none;
+    outline:none;
+    font-size:16px;
+    text-align:center;
+    margin-bottom:25px;
+    background:rgba(255,255,255,.85);
+    transition:.35s;
+
+}
+
+#password:focus{
+
+    box-shadow:0 0 25px rgba(255,120,170,.45);
+
+}
+
+#unlockBtn{
+
+    width:100%;
+    padding:18px;
+    border:none;
+    border-radius:50px;
+
+    cursor:pointer;
+
+    background:linear-gradient(135deg,#ff6b9d,#ff8db7);
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    transition:.35s;
+
+    box-shadow:0 12px 35px rgba(255,105,150,.35);
+
+}
+
+#unlockBtn:hover{
+
+    transform:translateY(-4px) scale(1.04);
+
+    box-shadow:0 18px 45px rgba(255,105,150,.45);
+
+}
+
+#error{
+
+    margin-top:18px;
+    color:#d52c61;
+    font-weight:600;
+
+}
+
+/* ================= Hero ================= */
+
+.hero{
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:40px;
+
+}
+
+.hero h1{
+
+    font-size:75px;
+
+    color:#ff5b94;
+
+    font-family:'Great Vibes',cursive;
+
+    animation:fadeUp 1s;
+
+}
+
+.hero h2{
+
+    margin-top:10px;
+
+    font-size:36px;
+
+    font-weight:500;
+
+}
+
+.hero p{
+
+    max-width:650px;
+
+    margin:35px auto;
+
+    font-size:20px;
+
+    line-height:2;
+
+    color:#666;
+
+}
+
+.scroll{
+
+    margin-top:35px;
+
+    color:#ff5b94;
+
+    animation:bounce 2s infinite;
+
+}
+
+@keyframes bounce{
+
+    50%{
+
+        transform:translateY(10px);
+
+    }
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+        transform:translateY(50px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:none;
+
+    }
+
+}
+
+/* ================= Premium Buttons ================= */
+
+button{
+
+    transition:.35s;
+
+}
+
+button:hover{
+
+    transform:translateY(-4px) scale(1.05);
+
+}
+
+/* ================= Section Spacing ================= */
+
+section{
+
+    padding:110px 8%;
+
+}
+
+
+/* ==========================================
+        PART 2 - TIMELINE / LETTER / FINAL
+========================================== */
+
+/* JOURNEY */
+
+.journey{
+
+    text-align:center;
+
+}
+
+.journey h2{
+
+    font-size:55px;
+
+    font-family:'Great Vibes',cursive;
+
+    color:#ff5b94;
+
+    margin-bottom:70px;
+
+}
+
+.timeline{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+    gap:40px;
+
+    align-items:start;
+
+}
+
+.card{
+
+    background:rgba(255,255,255,.55);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.6);
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    box-shadow:0 20px 45px rgba(255,105,150,.18);
+
+    transition:.45s;
+
+    position:relative;
+
+}
+
+.card:hover{
+
+    transform:translateY(-12px) scale(1.02);
+
+    box-shadow:0 30px 60px rgba(255,105,150,.28);
+
+}
+
+.card::before{
+
+    content:"❤️";
+
+    position:absolute;
+
+    top:18px;
+
+    right:18px;
+
+    font-size:22px;
+
+    animation:heartbeat 1.5s infinite;
+
+}
+
+.card img{
+
+    width:100%;
+
+    aspect-ratio:4/5;
+
+    object-fit:cover;
+
+    transition:.6s;
+
+    display:block;
+
+}
+
+.card:hover img{
+
+    transform:scale(1.08);
+
+}
+
+.card h3{
+
+    margin:22px 20px 10px;
+
+    color:#ff5b94;
+
+    font-size:25px;
+
+}
+
+.card p{
+
+    padding:0 20px 25px;
+
+    color:#666;
+
+    line-height:1.8;
+
+}
+
+/* SECRET */
+
+.secret{
+
+    text-align:center;
+
+}
+
+.secret h2{
+
+    font-size:55px;
+
+    color:#ff5b94;
+
+    font-family:'Great Vibes',cursive;
+
+    margin-bottom:30px;
+
+}
+
+#letterBtn{
+
+    padding:18px 42px;
+
+    border:none;
+
+    border-radius:60px;
+
+    background:linear-gradient(135deg,#ff6fa4,#ff9ac1);
+
+    color:white;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    box-shadow:0 18px 45px rgba(255,105,150,.25);
+
+}
+
+#letterBtn:hover{
+
+    transform:scale(1.08);
+
+}
+
+/* LETTER */
+
+#letter{
+
+    position:fixed;
+
+    inset:0;
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:rgba(0,0,0,.65);
+
+    backdrop-filter:blur(8px);
+
+    z-index:9999;
+
+}
+
+.letter-card{
+
+    width:760px;
+
+    max-width:92%;
+
+    height:85vh;
+
+    background:white;
+
+    border-radius:30px;
+
+    padding:40px;
+
+    overflow-y:auto;
+
+    position:relative;
+
+    animation:popup .45s ease;
+
+    box-shadow:0 25px 60px rgba(0,0,0,.25);
+
+}
+
+@keyframes popup{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px) scale(.92);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:none;
+
+    }
+
+}
+
+#closeLetter{
+
+    position:absolute;
+
+    top:18px;
+
+    right:22px;
+
+    font-size:35px;
+
+    cursor:pointer;
+
+    color:#ff5b94;
+
+}
+
+.letter-card h2{
+
+    text-align:center;
+
+    font-size:48px;
+
+    color:#ff5b94;
+
+    margin-bottom:30px;
+
+    font-family:'Great Vibes',cursive;
+
+}
+
+.letter-card p{
+
+    white-space:pre-line;
+
+    line-height:2.1;
+
+    color:#555;
+
+    font-size:17px;
+
+}
+
+/* FINAL */
+
+.final{
+
+    text-align:center;
+
+}
+
+.final h2{
+
+    font-size:65px;
+
+    color:#ff5b94;
+
+    font-family:'Great Vibes',cursive;
+
+}
+
+.final p{
+
+    max-width:650px;
+
+    margin:30px auto;
+
+    font-size:20px;
+
+    line-height:2;
+
+}
+
+#foreverBtn{
+
+    padding:22px 50px;
+
+    border:none;
+
+    border-radius:60px;
+
+    background:linear-gradient(135deg,#ff5b94,#ff86b3);
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:20px;
+
+    font-weight:600;
+
+    box-shadow:0 18px 45px rgba(255,105,150,.28);
+
+}
+
+#foreverBtn:hover{
+
+    transform:scale(1.08);
+
+}
+
+/* CELEBRATION */
+
+#celebration{
+
+    position:fixed;
+
+    inset:0;
+
+    background:linear-gradient(135deg,#ff8bb8,#ffd6e8);
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-direction:column;
+
+    text-align:center;
+
+    z-index:99999;
+
+}
+
+#celebration h1{
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:85px;
+
+    color:white;
+
+    text-shadow:0 8px 25px rgba(0,0,0,.15);
+
+    animation:heartbeat 1.5s infinite;
+
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#ff8db7;
+
+    border-radius:20px;
+
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+.hero h1{
+
+font-size:58px;
+
+}
+
+.hero h2{
+
+font-size:28px;
+
+}
+
+.journey h2,
+.secret h2,
+.final h2{
+
+font-size:45px;
+
+}
+
+#celebration h1{
+
+font-size:52px;
+
+}
+
+.timeline{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
+@media(max-width:600px){
+
+.lock-card{
+
+padding:35px 25px;
+
+}
+
+.lock-card h1{
+
+font-size:42px;
+
+}
+
+.hero h1{
+
+font-size:48px;
+
+}
+
+.hero p{
+
+font-size:17px;
+
+}
+
+.letter-card{
+
+padding:25px;
+
+height:88vh;
+
+}
+
+.letter-card h2{
+
+font-size:40px;
+
+}
+
+.letter-card p{
+
+font-size:15px;
+
+line-height:1.9;
+
+}
+
+#foreverBtn,
+#letterBtn{
+
+width:100%;
+
+}
+
+}
